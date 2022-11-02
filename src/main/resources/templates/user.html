@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 style="color:blue;">This is User page</h2>
+<p>
+    <a th:href="@{/user/create}">
+        New User
+    </a>
+</p>
+<table id="users">
+    <thead>
+    <tr>
+        <th>User's Name</th>
+    </tr>
+    </thead>
+    <thead>
+    <tr th:each="user: ${users}">
+        <td><a th:href="@{/{id}/view(id=${user.id})}"><span th:text="${user.userName}"></span></a></td>
+    </tr>
+    </thead>
+</table>
+<!--<div th:each="user: ${users}">-->
+<!--  <div>User name: <a th:href="@{/{id}/view(id=${user.getId()})}"><span th:text="${user.userName}"></span></a></div>-->
+<!--</div>-->
+</body>
+</html>
