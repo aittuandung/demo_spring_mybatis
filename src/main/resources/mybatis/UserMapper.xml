@@ -8,11 +8,11 @@
     <select id="getAllUsers" resultType="User">
         select * from user
     </select>
-    <select id="getUserById" resultType="User" parameterType="long">
+    <select id="getUserById" resultType="com.example.demo.model.User" parameterType="long">
         select * from user where id = #{id}
     </select>
     <insert id="createUser" parameterType="User" keyProperty="id" useGeneratedKeys="true">
-        insert into user (id,userName)
+        insert into user (id,user_name)
         values (#{id},#{userName})
     </insert>
 </mapper>

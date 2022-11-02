@@ -19,7 +19,7 @@
     </thead>
     <thead>
     <tr th:each="user: ${users}">
-        <td><a th:href="@{/{id}/view(id=${user.id})}"><span th:text="${user.userName}"></span></a></td>
+        <td><a th:href="@{/view/{id}(id=${user.id})}"><span th:text="${user.userName}"></span></a></td>
     </tr>
     </thead>
 </table>
