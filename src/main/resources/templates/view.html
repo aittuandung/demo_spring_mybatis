@@ -5,12 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<h3>User Detail:</h3>
-<p>
-    <a th:href="@{/user}">
-        Back to list user
-    </a>
-</p>
-<!--<div>User Name: <span th:text="${user.fullName}"></span></div>-->
+<div style="margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;">
+    <h3>User Detail:</h3>
+    <p>
+        <a th:href="@{/user}">
+            Back to list user
+        </a>
+    </p>
+    <div style="color:green">User Name: <span th:text="${user.userName}"></span></div>
+</div>
 </body>
 </html>

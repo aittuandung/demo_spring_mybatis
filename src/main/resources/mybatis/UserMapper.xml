@@ -8,11 +8,21 @@
     <select id="getAllUsers" resultType="User">
         select * from user
     </select>
-    <select id="getUserById" resultType="com.example.demo.model.User" parameterType="long">
+    <select id="getUserById" resultType="User" parameterType="long">
         select * from user where id = #{id}
     </select>
     <insert id="createUser" parameterType="User" keyProperty="id" useGeneratedKeys="true">
         insert into user (id,user_name)
         values (#{id},#{userName})
     </insert>
+
+    <delete id="removeUserById" parameterType="long">
+        delete from user where id = #{id}
+    </delete>
+
+    <update id="updateUserById" parameterType="User" keyProperty="id">
+        update user
+        set user_name = #{userName}
+        where id = #{id}
+    </update>
 </mapper>
