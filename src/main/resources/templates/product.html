@@ -5,8 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<div th:each="product: ${products}">
-    <div>Product Name: <span th:text="${product.productName}"></span></div>
+<div style="margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;">
+    <div th:each="product: ${products}">
+        <div>Product Name: <span th:text="${product.productName}"></span></div>
+    </div>
 </div>
 </body>
 </html>

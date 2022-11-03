@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.ProductMapper">
-    <select id="getAllProducts" resultType="Product">
+    <select id="getAllProducts" resultType="com.example.demo.model.Product">
         select * from product;
+    </select>
+
+    <select id="getAllProductByUserId" resultType="com.example.demo.model.Product">
+        select product.id, product.product_id, product.product_name
+        from user
+        right join product on user.id = product.id where user.id = #{id}
     </select>
 </mapper>

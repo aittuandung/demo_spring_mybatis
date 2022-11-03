@@ -8,4 +8,6 @@ import java.util.List;
 public interface ProductMapper {
     List<Product> getAllProducts();
 
+    List<Product> getAllProductByUserId(long id);
+
 }

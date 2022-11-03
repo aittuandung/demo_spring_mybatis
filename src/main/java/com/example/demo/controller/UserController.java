@@ -52,7 +52,7 @@ public class UserController {
     @GetMapping("/view/{id}")
     public String view(@PathVariable long id, Model model){
         User user = userMapper.getUserById(id);
-        logger.info("User: ", user.getId());
+        logger.info("User Detail: {}", user);
         model.addAttribute("user", user);
         return "view";
     }
@@ -86,6 +86,7 @@ public class UserController {
     @GetMapping("/update/{id}")
     public String update(@PathVariable long id, Model model){
         User user = userMapper.getUserById(id);
+        logger.info("Update user: {}", user);
         model.addAttribute("user", user);
         return "update";
     }
@@ -95,5 +96,17 @@ public class UserController {
         logger.info("Update user: {}", user);
         userMapper.updateUserById(user);
         return "redirect:/user";
+    }
+
+    @GetMapping("/product/{id}")
+    public String product(Model model,@PathVariable long id) {
+        List<Product> products = productMapper.getAllProductByUserId(id);
+        products.forEach(p -> {
+            logger.info("Product: {}", p);
+        });
+
+        model.addAttribute("products", products);
+
+        return "product";
     }
 }
