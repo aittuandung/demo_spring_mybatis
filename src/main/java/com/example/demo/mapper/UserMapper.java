@@ -10,9 +10,9 @@ public interface UserMapper {
 
     User getUserById(long id);
 
-    void createUser(User user);
+    int createUser(User user);
 
-    void removeUserById(long id);
+    int removeUserById(long id);
 
-    void updateUserById(long id, String userName);
+    int updateUserById(User user);
 }

@@ -92,7 +92,8 @@ public class UserController {
 
     @PostMapping("/update")
     public String update(User user){
-        userMapper.updateUserById(user.getId(), user.getUserName());
+        logger.info("Update user: {}", user);
+        userMapper.updateUserById(user);
         return "redirect:/user";
     }
 }
