@@ -12,4 +12,7 @@ public interface UserMapper {
 
     void createUser(User user);
 
+    void removeUserById(long id);
+
+    void updateUserById(long id, String userName);
 }

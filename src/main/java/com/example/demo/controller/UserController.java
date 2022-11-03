@@ -8,10 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -69,6 +67,32 @@ public class UserController {
     public String save(User user) {
         user.setId((long) (Math.random() * 10000));
         userMapper.createUser(user);
+        return "redirect:/user";
+    }
+
+    @GetMapping("/remove/{id}")
+    public String remove(@PathVariable long id, Model model){
+        User user = userMapper.getUserById(id);
+        model.addAttribute("user", user);
+        return "remove";
+    }
+
+    @PostMapping("/remove")
+    public String remove(User user){
+        userMapper.removeUserById(user.getId());
+        return "redirect:/user";
+    }
+
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable long id, Model model){
+        User user = userMapper.getUserById(id);
+        model.addAttribute("user", user);
+        return "update";
+    }
+
+    @PostMapping("/update")
+    public String update(User user){
+        userMapper.updateUserById(user.getId(), user.getUserName());
         return "redirect:/user";
     }
 }
