@@ -98,7 +98,7 @@ public class UserController {
         return "redirect:/user";
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/view/{id}/product")
     public String product(Model model,@PathVariable long id) {
         List<Product> products = productMapper.getAllProductByUserId(id);
         products.forEach(p -> {

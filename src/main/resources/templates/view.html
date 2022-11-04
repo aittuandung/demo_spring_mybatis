@@ -15,7 +15,7 @@
             Back to list user
         </a>
     </p>
-    <div style="color:green">User Name: <span th:text="${user.userName}"></span><a th:href="@{/user/product/{id}(id=${user.id})}">Product</a></div>
+    <div style="color:green">User Name: <span th:text="${user.userName}"></span><a th:href="@{/user/view/{id}/product(id=${user.id})}">Product</a></div>
 </div>
 </body>
 </html>

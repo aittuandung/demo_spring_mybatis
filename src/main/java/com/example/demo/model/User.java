@@ -10,5 +10,4 @@ import lombok.ToString;
 public class User {
     private long id = 0;
     private String userName = "";
-//    private Product product;
 }
